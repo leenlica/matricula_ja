@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matrícula já</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="nav.css">
+    <link rel="stylesheet" href="alertas.css">
+</head>
+
+<body>
+    <nav class="navbar">
+        <button class="menu-toggle" id="menu-toggle">
+            <i class="fas fa-bars"></i>
+        </button>
+        <div class="navbar-brand">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/0/07/Bras%C3%A3o_de_Jo%C3%A3o_Pessoa.svg" width="50px">
+            <p><B>
+                    Matrícula-já
+                </B>
+            </p>
+        </div>
+        <div class="navbar-icons">
+            <a href="dashboard.html" class="nav-link">
+                <i class="fas fa-home"></i> Home
+            </a>
+            <a href="alertas.html" class="nav-link">
+                <i class="fas fa-bell"></i> Alertas
+            </a>
+            <div class="user-dropdown">
+                <a href="#" class="nav-link user-icon" id="user-icon" data-bs-toggle="dropdown" aria-expanded="false">
+                    <div class="user-icon-wrapper">
+                        <span class="bar"></span>
+                        <i class="fas fa-user"></i> User
+                    </div>
+                </a>
+                <ul class="dropdown-menu  dropdown-menu-end" aria-labelledby="user-icon">
+                    <li><a class="dropdown-item" href="login.html" id="logout">Logout</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <section class="alert-container container-lg">
+        <div class="div-switch">
+            <button onclick="toggleDiv(false)" id="alert1">Ver Alertas</button>
+            <button onclick="toggleDiv(true)" id="alert2" style="border-bottom: 2px solid #d31717">Faça um Alerta</button>
+        </div>
+        <div class="alert-switch">
+            <div id="1" style="display:none;">Conteúdo da Div 1</div>
+            <div id="2">
+                <h2 style="text-align: center;">Produza seu alerta
+                    <span class="bell-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            class="bi bi-bell-fill" viewBox="0 0 16 16">
+                            <path
+                                d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2m.995-14.901a1 1 0 1 0-1.99 0A5 5 0 0 0 3 6c0 1.098-.5 6-2 7h14c-1.5-1-2-5.902-2-7 0-2.42-1.72-4.44-4.005-4.901" />
+                        </svg>
+                    </span>
+                </h2>
+                <div>
+                    <form action="">
+                        <div class="input-sample">
+                            <label for="title">Título do alerta:</label>
+                            <input type="text" id="title" name="title" required>
+                        </div>
+                        <div class="input-sample">
+                            <label for="description">Descrição do alerta:</label>
+                            <input type="text" id="description" name="description" required>
+                        </div>
+                        <div class="input-option mt-3">
+                            <p class="text-start m-0">Para quem é seu alerta?</p>
+                            <div class="d-flex justify-content-between">
+                                <span>
+                                    <input type="radio" name="destinatario" id="itds">
+                                    <label for="itds">Todos</label>
+                                </span>
+                                <span class="radio-esp-alun">
+                                    <input type="radio" name="destinatario" id="ialu">
+                                    <label for="ialu">Aluno específico: </label>
+                                    <input type="text" id="ialu" placeholder="id aluno" class="w-100">
+                                </span>
+                            </div>
+                        </div>
+    
+                        <div class="d-flex justify-content-start mt-3">
+                            <input type="submit" value="Enviar">
+                            <input type="submit" value="Limpar">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    
+    <script>
+        const div1 = document.getElementById("1");
+        const div2 = document.getElementById("2");
+        const bt1 = document.getElementById("alert1");
+        const bt2 = document.getElementById("alert2");
+
+        function toggleDiv(flag) {
+            if (flag) {
+                div1.style.display = "none";
+                div2.style.display = "block";
+                bt2.style.borderBottom = "2px solid #d31717";
+                bt1.style.borderBottom = "none";
+            } else {
+                div2.style.display = "none";
+                div1.style.display = "block";
+                bt1.style.borderBottom = "2px solid #d31717";
+                bt2.style.borderBottom = "none";
+            }
+        }
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+    <script>
+        document.getElementById('menu-toggle').addEventListener('click', function () {
+                document.querySelector('.navbar-icons').classList.toggle('show');
+            });
+
+    </script>
+
+
+</body>
+
+</html>

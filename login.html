@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <title>login</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            text-align: center;
+            background-image: linear-gradient(45deg, #e9e9e9, #c7c7c7);
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+        }
+
+        div {
+            background-color: rgba(0, 0, 0, 7);
+            box-shadow: 3px 3px 3px 3px #121111;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 80px;
+            border-radius: 15px;
+            color: #FFF;
+
+        }
+
+        input {
+            padding: 15px;
+            border: none;
+            outline: none;
+            display: inlineblock;
+            font-size: 15px;
+            background-color: transparant;
+            position: relative;
+        }
+
+        button {
+            background-color: darkred;
+            border: none;
+            padding: 15px;
+            width: 100%;
+            border-radius: 10px;
+            color: white;
+            font-size: 15px;
+        }
+
+        button:hover {
+            background-color: darkred;
+            cursor: pointer;
+        }
+
+        h2 {
+            font-size: 10px;
+        }
+
+
+        div i {
+            font-size: 30px;
+            cursor: pointer;
+            position: absolute;
+            right: 5%;
+            color: #5e2129;
+        }
+
+        div i:hover {
+            color: #5e2129
+        }
+
+        checkbox {
+            text-align: left;
+            position: relative;
+
+        }
+
+        .custom-link {
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div> <img src="https://upload.wikimedia.org/wikipedia/commons/0/07/Bras%C3%A3o_de_Jo%C3%A3o_Pessoa.svg"
+            width="60px" />
+        <h1>Login </h1>
+
+        <input type="text" placeholder="E-mail ou CPF">
+        <br><br>
+
+        <input type="password" placeholder="Senha"><i class="bi bi-eye-fill" id="btn-senha"
+            onclick="Mostrarsenha()"></i>
+
+        <script src="main.js"></script>
+        <br><br>
+
+        <input type='checkbox'>Lembrar <a class="custom-btn btn custom-link" href="av2_senha.html">Redefir
+            Senha</a>,
+        <br><br>
+
+        <button>Entrar</button>
+        <hr>
+
+        <p>Não tem uma Conta? <a class="custom-btn btn custom-link" href="av2_cadastro.html">Cadastre-se</a></p>
+
+    </div>
+    <script src="login.js"></script>
+</body>
+
+</html>
