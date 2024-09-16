@@ -1,0 +1,23 @@
+{
+  "name": "matricula_back_front",
+  "type": "module",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "node --watch src/index.js",
+    "db:reload": "npm run db:drop && npm run db:load",
+    "db:load": "node src/database/load.js",
+    "db:drop": "rm src/database/db.sqlite"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "express": "^4.21.0",
+    "express-async-errors": "^3.1.1",
+    "morgan": "^1.10.0",
+    "sqlite-async": "^1.2.0"
+  }
+}
