@@ -16,12 +16,12 @@ async function emitirAlerta(titulo, descricao, usuarios) {
     }
 }
 
+
 document.getElementById('alertForm').addEventListener('submit', async function (event) {
     event.preventDefault(); 
 
     const titulo = document.getElementById('title').value;
     const descricao = document.getElementById('description').value;
-
     const destinatarioAluno = document.getElementById('destinatarioAluno').checked;
     let usuarios = [];
 
@@ -30,7 +30,7 @@ document.getElementById('alertForm').addEventListener('submit', async function (
         if (idAluno) {
             usuarios = [idAluno];
         } else {
-            alert('Por favor, insira o ID do aluno.');
+            alert('Insira o ID do aluno.');
             return;
         }
     }
