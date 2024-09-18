@@ -15,7 +15,7 @@ GET http://localhost:3000/alertas
 GET http://localhost:3000/alertas?titulo=Alerta
 
 ###
-PUT http://localhost:3000/alertas/{{createdAlertId}}
+PUT http://localhost:3000/alertas/:id
 Content-Type: application/json
 
 {
@@ -28,4 +28,4 @@ Content-Type: application/json
 DELETE http://localhost:3000/alertas/2
 
 ###
-PUT http://localhost:3000/alertas/{{createdAlertId}}/lido
+PUT http://localhost:3000/alertas/:id/lido

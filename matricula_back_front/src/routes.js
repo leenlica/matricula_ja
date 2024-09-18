@@ -6,7 +6,7 @@ const router = express.Router();
 // Criar um novo alerta
 router.post('/alertas', async (req, res) => {
     const { titulo, descricao, usuarios } = req.body;
-    console.log('Dados recebidos:', { titulo, descricao, usuarios }); // Adicione este log
+    console.log('Dados recebidos:', { titulo, descricao, usuarios });
 
     if (!titulo || !descricao) {
         return res.status(400).json({ error: 'Título e descrição são obrigatórios.' });
@@ -17,7 +17,7 @@ router.post('/alertas', async (req, res) => {
         const result = await db.run('INSERT INTO alerta (titulo, descricao) VALUES (?, ?)', [titulo, descricao]);
         const alertaId = result.lastID;
 
-        console.log('Alerta criado com ID:', alertaId); // Adicione este log
+        console.log('Alerta criado com ID:', alertaId); 
 
         if (usuarios) {
             for (const usuarioId of usuarios) {
@@ -32,7 +32,7 @@ router.post('/alertas', async (req, res) => {
 
         res.status(201).json({ id: alertaId });
     } catch (error) {
-        console.error('Erro ao criar alerta:', error); // Adicione detalhes do erro
+        console.error('Erro ao criar alerta:', error); 
         res.status(500).json({ error: 'Erro ao criar alerta.' });
     }
 });
@@ -42,17 +42,16 @@ router.put('/alertas/:id', async (req, res) => {
     const alertaId = req.params.id;
     const { titulo, descricao, usuarios } = req.body;
 
-    // Validar os dados do alerta
     if (!titulo || !descricao) {
         return res.status(400).json({ error: 'Título e descrição são obrigatórios.' });
     }
 
     try {
         const db = await Database.connect(); 
-        // Atualizar o alerta no banco de dados
+        // Atualiza o alerta 
         await db.run('UPDATE alerta SET titulo = ?, descricao = ? WHERE id_alerta = ?', [titulo, descricao, alertaId]);
 
-        // Atualizar os usuários associados ao alerta
+        // Atualiza os usuários associados ao alerta
         await db.run('DELETE FROM alerta_user WHERE alerta_id = ?', [alertaId]);
         if (usuarios) {
             for (const usuarioId of usuarios) {
@@ -73,7 +72,7 @@ router.delete('/alertas/:id', async (req, res) => {
 
     try {
         const db = await Database.connect(); 
-        // Excluir o alerta do banco de dados
+       
         await db.run('DELETE FROM alerta WHERE id_alerta = ?', [alertaId]);
         res.status(200).json({ message: 'Alerta excluído com sucesso.' });
     } catch (error) {
@@ -85,11 +84,11 @@ router.delete('/alertas/:id', async (req, res) => {
 // Marcar um alerta como lido
 router.put('/alertas/:id/lido', async (req, res) => {
     const alertaId = req.params.id;
-    const usuarioId = req.user.id_usuario; // Obter o ID do usuário logado
+    const usuarioId = req.user.id_usuario; 
 
     try {
         const db = await Database.connect(); 
-        // Marcar o alerta como lido para o usuário atual
+        
         await db.run('UPDATE alerta_user SET lido = 1 WHERE alerta_id = ? AND usuario_id = ?', [alertaId, usuarioId]);
         res.status(200).json({ message: 'Alerta lido.' });
     } catch (error) {
