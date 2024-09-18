@@ -63,7 +63,7 @@
                     </span>
                 </h2>
                 <div>
-                    <form action="">
+                    <form id="alertForm">
                         <div class="input-sample">
                             <label for="title">Título do alerta:</label>
                             <input type="text" id="title" name="title" required>
@@ -76,27 +76,25 @@
                             <p class="text-start m-0">Para quem é seu alerta?</p>
                             <div class="d-flex justify-content-between">
                                 <span>
-                                    <input type="radio" name="destinatario" id="itds">
-                                    <label for="itds">Todos</label>
+                                    <input type="radio" name="destinatario" id="destinatarioTodos">
+                                    <label for="destinatarioTodos">Todos</label>
                                 </span>
                                 <span class="radio-esp-alun">
-                                    <input type="radio" name="destinatario" id="ialu">
-                                    <label for="ialu">Aluno específico: </label>
-                                    <input type="text" id="ialu" placeholder="id aluno" class="w-100">
+                                    <input type="radio" name="destinatario" id="destinatarioAluno">
+                                    <label for="destinatarioAluno">Aluno específico: </label>
+                                    <input type="text" id="idAluno" placeholder="id aluno" class="w-100">
                                 </span>
                             </div>
                         </div>
-    
                         <div class="d-flex justify-content-start mt-3">
                             <input type="submit" value="Enviar">
-                            <input type="submit" value="Limpar">
+                            <input type="reset" value="Limpar">
                         </div>
                     </form>
                 </div>
             </div>
         </div>
     </section>
-    
     
     <script>
         const div1 = document.getElementById("1");
@@ -128,6 +126,7 @@
             });
 
     </script>
+    <script type="module"  src="alertas.js"></script>
 
 
 </body>

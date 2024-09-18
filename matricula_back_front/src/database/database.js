@@ -8,4 +8,4 @@ async function connect() {
     return await Database.open(dbFile);
 }
 
-export default { connect };
+export default {connect}

@@ -1,0 +1,31 @@
+###
+POST http://localhost:3000/alertas
+Content-Type: application/json
+
+{
+  "titulo": "Alerta de Teste",
+  "descricao": "Este é um alerta de teste.",
+  "usuarios": [1, 2, 3]  
+}
+
+###
+GET http://localhost:3000/alertas
+
+###
+GET http://localhost:3000/alertas?titulo=Alerta
+
+###
+PUT http://localhost:3000/alertas/{{createdAlertId}}
+Content-Type: application/json
+
+{
+  "titulo": "Alerta de Teste Atualizado",
+  "descricao": "Este alerta foi atualizado.",
+  "usuarios": [1, 2]
+}
+
+###
+DELETE http://localhost:3000/alertas/2
+
+###
+PUT http://localhost:3000/alertas/{{createdAlertId}}/lido
