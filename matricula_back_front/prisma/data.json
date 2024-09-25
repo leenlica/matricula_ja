@@ -1,0 +1,266 @@
+{
+    "perfis": [
+        {
+            "nome_perfil": "Admin"
+        },
+        {
+            "nome_perfil": "Estudante"
+        },
+        {
+            "nome_perfil": "Escola"
+        },
+        {
+            "nome_perfil": "Gestor"
+        }
+    ],
+    "usuarios": [
+        {
+            "nome": "Maxwell",
+            "perfil_id": 1
+        },
+        {
+            "nome": "Sofia",
+            "perfil_id": 2
+        },
+        {
+            "nome": "Allice",
+            "perfil_id": 2
+        },
+        {
+            "nome": "Maria Clara",
+            "perfil_id": 3
+        },
+        {
+            "nome": "Hellen",
+            "perfil_id": 4
+        }
+    ],
+    "escolas": [
+        {
+            "nome_escola": "IFPB",
+            "endereco": "Rua manoel"
+        },
+        {
+            "nome_escola": "EEBAS",
+            "endereco": "Rua geraldo"
+        },
+        {
+            "nome_escola": "UFPB",
+            "endereco": "Rua Valdecir"
+        }
+    ],
+    "turmasEscolas":[
+        {
+            "escola_id": 1,
+            "anos": [
+                {
+                    "ano": 2024,
+                    "qtde_vagas_ofertadas": 30,
+                    "qtde_vagas_disponiveis": 16
+                },
+                {
+                    "ano": 2023,
+                    "qtde_vagas_ofertadas": 50,
+                    "qtde_vagas_disponiveis": 0
+                },
+                {
+                    "ano": 2022,
+                    "qtde_vagas_ofertadas": 40,
+                    "qtde_vagas_disponiveis": 0
+                }
+            ]
+        },
+        {
+            "escola_id": 2,
+            "anos": [
+                {
+                    "ano": 2024,
+                    "qtde_vagas_ofertadas": 20,
+                    "qtde_vagas_disponiveis": 10
+                },
+                {
+                    "ano": 2023,
+                    "qtde_vagas_ofertadas": 200,
+                    "qtde_vagas_disponiveis": 0
+                },
+                {
+                    "ano": 2022,
+                    "qtde_vagas_ofertadas": 150,
+                    "qtde_vagas_disponiveis": 0
+                }
+            ]
+        },
+        {
+            "escola_id": 3,
+            "anos": [
+                {
+                    "ano": 2024,
+                    "qtde_vagas_ofertadas": 3000,
+                    "qtde_vagas_disponiveis": 2998
+                },
+                {
+                    "ano": 2023,
+                    "qtde_vagas_ofertadas": 500,
+                    "qtde_vagas_disponiveis": 0
+                },
+                {
+                    "ano": 2022,
+                    "qtde_vagas_ofertadas": 4000,
+                    "qtde_vagas_disponiveis": 0
+                }
+            ]
+        }
+    ],
+    "EstudantesTurmasEscola" : [
+        {
+            "ano": 2024,
+            "id_escola_fk": 1,
+            "datahora_prematricula": "2021-1-10 10:00:00",
+            "datahora_matricula": "2021-1-19 10:00:00"
+        },
+        {
+            "ano": 2024,
+            "id_escola_fk": 1,
+            "datahora_prematricula": "2021-1-10 10:00:00",
+            "datahora_matricula": "2021-1-19 10:00:00"
+        },
+        {
+            "ano": 2024,
+            "id_escola_fk": 1,
+            "datahora_prematricula": "2021-1-10 10:00:00",
+            "datahora_matricula": "2021-1-19 10:00:00"
+        },
+        {
+            "ano": 2024,
+            "id_escola_fk": 1,
+            "datahora_prematricula": "2021-1-10 10:00:00",
+            "datahora_matricula": "2021-3-19 10:00:00"
+        },
+        {
+            "ano": 2024,
+            "id_escola_fk": 1,
+            "datahora_prematricula": "2021-1-10 10:00:00",
+            "datahora_matricula": "2021-3-19 10:00:00"
+        },
+        {
+            "ano": 2024,
+            "id_escola_fk": 1,
+            "datahora_prematricula": "2021-2-10 10:00:00",
+            "datahora_matricula": "2021-2-19 10:00:00"
+        },
+        {
+            "ano": 2024,
+            "id_escola_fk": 1,
+            "datahora_prematricula": "2021-2-10 10:00:00",
+            "datahora_matricula": "2021-2-19 10:00:00"
+        },
+        {
+            "ano": 2024,
+            "id_escola_fk": 1,
+            "datahora_prematricula": "2021-2-10 10:00:00",
+            "datahora_matricula": "2021-2-19 10:00:00"
+        },
+        {
+            "ano": 2024,
+            "id_escola_fk": 1,
+            "datahora_prematricula": "2021-2-10 10:00:00",
+            "datahora_matricula": "2021-3-19 10:00:00"
+        },
+        {
+            "ano": 2024,
+            "id_escola_fk": 1,
+            "datahora_prematricula": "2021-3-10 10:00:00",
+            "datahora_matricula": "2021-3-19 10:00:00"
+        },
+        {
+            "ano": 2024,
+            "id_escola_fk": 1,
+            "datahora_prematricula": "2021-3-10 10:00:00",
+            "datahora_matricula": "2021-3-19 10:00:00"
+        },
+        {
+            "ano": 2024,
+            "id_escola_fk": 1,
+            "datahora_prematricula": "2021-3-10 10:00:00"
+        },
+        {
+            "ano": 2024,
+            "id_escola_fk": 1,
+            "datahora_prematricula": "2021-3-10 10:00:00"
+        },
+        {
+            "ano": 2024,
+            "id_escola_fk": 1,
+            "datahora_prematricula": "2021-3-10 10:00:00"
+        },
+        {
+            "ano": 2024,
+            "id_escola_fk": 2,
+            "datahora_prematricula": "2021-1-10 10:00:00",
+            "datahora_matricula": "2021-1-19 10:00:00"
+        },
+        {
+            "ano": 2024,
+            "id_escola_fk": 2,
+            "datahora_prematricula": "2021-1-10 10:00:00",
+            "datahora_matricula": "2021-1-19 10:00:00"
+        },
+        {
+            "ano": 2024,
+            "id_escola_fk": 2,
+            "datahora_prematricula": "2021-2-10 10:00:00",
+            "datahora_matricula": "2021-2-19 10:00:00"
+        },
+        {
+            "ano": 2024,
+            "id_escola_fk": 2,
+            "datahora_prematricula": "2021-2-10 10:00:00",
+            "datahora_matricula": "2021-2-19 10:00:00"
+        },
+        {
+            "ano": 2024,
+            "id_escola_fk": 2,
+            "datahora_prematricula": "2021-2-10 10:00:00",
+            "datahora_matricula": "2021-3-19 10:00:00"
+        },
+        {
+            "ano": 2024,
+            "id_escola_fk": 2,
+            "datahora_prematricula": "2021-2-10 10:00:00",
+            "datahora_matricula": "2021-3-19 10:00:00"
+        },
+        {
+            "ano": 2024,
+            "id_escola_fk": 2,
+            "datahora_prematricula": "2021-2-10 10:00:00",
+            "datahora_matricula": "2021-3-19 10:00:00"
+        },
+        {
+            "ano": 2024,
+            "id_escola_fk": 2,
+            "datahora_prematricula": "2021-2-10 10:00:00"
+        },
+        {
+            "ano": 2024,
+            "id_escola_fk": 2,
+            "datahora_prematricula": "2021-2-10 10:00:00"
+        },
+        {
+            "ano": 2024,
+            "id_escola_fk": 2,
+            "datahora_prematricula": "2021-3-10 10:00:00"
+        },
+        {
+            "ano": 2024,
+            "id_escola_fk": 3,
+            "datahora_prematricula": "2021-1-10 10:00:00",
+            "datahora_matricula": "2021-1-19 10:00:00"
+        },
+        {
+            "ano": 2024,
+            "id_escola_fk": 3,
+            "datahora_prematricula": "2021-3-10 10:00:00",
+            "datahora_matricula": "2021-3-19 10:00:00"
+        }
+    ]
+}
