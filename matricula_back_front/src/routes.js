@@ -98,4 +98,33 @@ router.put('/alertas/:id/lido', async (req, res) => {
 });
 
 
+
+//dashboard
+
+
+router.get('/vagas/:escolaId/:ano', async (req, res) => {
+    const escolaId = Number(req.params.escolaId) //converter para numero é essencial
+    const ano = Number(req.params.ano) //converter para numero é essencial
+    try {
+        const escola = await Vagas.readAllSchoolVagas(escolaId, ano);
+        res.json(escola)
+    } catch (e) {
+        console.log(e)
+        res.status(500).send("error no servidor")
+    }
+})
+
+router.get('/matriculas/:escolaId/:ano', async (req, res) => {
+    const escolaId = Number(req.params.escolaId) //converter para numero é essencial
+    const ano = Number(req.params.ano) //converter para numero é essencial
+
+    try {
+        const matriculas = await Vagas.readAllSchoolMatriculas(escolaId, ano);
+        res.json(matriculas)
+    } catch (e) {
+        console.log(e)
+        res.status(500).send("error no servidor")
+    }
+})
+
 export default router;

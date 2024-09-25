@@ -5,22 +5,24 @@
   "main": "index.js",
   "scripts": {
     "start": "node src/index.js",
-    "dev": "node --watch src/index.js",
-    "db:reload": "npm run db:drop && npm run db:load",
-    "db:load": "node src/database/load.js",
-    "db:drop": "rm src/database/db.sqlite"
+    "dev": "node --watch src/index.js"
+  },
+  "prisma": {
+    "seed": "node prisma/seeder.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "@prisma/client": "^5.20.0",
     "axios": "^1.7.7",
     "cors": "^2.8.5",
     "express": "^4.21.0",
     "express-async-errors": "^3.1.1",
     "matricula_back_front": "file:",
     "morgan": "^1.10.0",
+    "prisma": "^5.20.0",
     "sqlite-async": "^1.2.0"
   }
 }

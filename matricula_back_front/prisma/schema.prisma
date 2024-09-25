@@ -1,0 +1,77 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Usuario {
+  id_usuario Int     @id @default(autoincrement())
+  nome       String?
+  perfil_id  Int?
+  perfil     Perfil? @relation(fields: [perfil_id], references: [id_perfil])
+
+  AlertaUser AlertaUser[]
+  Estudante  EstudantesTurmasEscola[] // um usuario pode estar cadastrado em várias turmas ( nunca vi isso kkkk )
+}
+
+model AlertaUser {
+  id_alerta_user Int      @id @default(autoincrement())
+  data_envio     DateTime @default(now())
+  usuario_id     Int
+  alerta_id      Int
+  usuario        Usuario  @relation(fields: [usuario_id], references: [id_usuario])
+  alerta         Alerta   @relation(fields: [alerta_id], references: [id_alerta])
+}
+
+model Alerta {
+  id_alerta  Int          @id @default(autoincrement())
+  titulo     String
+  descricao  String
+  AlertaUser AlertaUser[]
+}
+
+model Perfil {
+  id_perfil   Int       @id @default(autoincrement())
+  nome_perfil String
+  usuarios    Usuario[]
+}
+
+model Escola {
+  id_escola   Int                      @id @default(autoincrement())
+  nome_escola String
+  endereco    String?
+  turmas      TurmaEscola[] // One Escola has many TurmaEscola
+  estudantes  EstudantesTurmasEscola[] // One Escola has many EstudantesTurmasEscola
+}
+
+model TurmaEscola {
+  id_escola_fk           Int // Foreign key to Escola
+  ano                    Int // Year
+  qtde_vagas_ofertadas   Int
+  qtde_vagas_disponiveis Int
+  escola                 Escola                   @relation(fields: [id_escola_fk], references: [id_escola], onDelete: Cascade)
+  estudantes             EstudantesTurmasEscola[]
+
+  @@unique([id_escola_fk, ano])
+}
+
+model EstudantesTurmasEscola {
+  id_estudante_turma    Int     @id @default(autoincrement())
+  id_escola_fk          Int // Foreign key to Escola
+  id_estudante_fk       Int? // Foreign key to the Estudante (assuming you have a separate Estudante model)
+  ano                   Int
+  datahora_prematricula String?
+  datahora_matricula    String?
+
+  turma     TurmaEscola @relation(fields: [id_escola_fk, ano], references: [id_escola_fk, ano], onDelete: Cascade) //devem ser mandados juntos para manter a unicidae dupla
+  escola    Escola      @relation(fields: [id_escola_fk], references: [id_escola], onDelete: Cascade)
+  estudante Usuario?    @relation(fields: [id_estudante_fk], references: [id_usuario], onDelete: Cascade)
+
+  @@unique([id_estudante_fk, ano, id_escola_fk])
+}
