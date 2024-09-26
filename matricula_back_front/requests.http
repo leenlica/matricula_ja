@@ -35,3 +35,21 @@ GET http://localhost:3000/vagas/1/2024
 
 ###
 GET http://localhost:3000/matriculas/2/2024
+
+###
+POST http://localhost:3000/cadastro
+Content-Type: application/json
+
+{
+  "email": "joaovictorgouveia@gmail.com",
+  "senha": "123456"
+}
+
+###
+POST http://localhost:3000/login
+Content-Type: application/json
+
+{
+  "email": "joaovictorgouveia@gmail.com",
+  "senha": "123456"
+}

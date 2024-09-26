@@ -4,8 +4,8 @@ document.getElementById('menu-toggle').addEventListener('click', function () {
 
 async function fetchDataAndRenderCharts() {
     try {
-        const responseVagas = await fetch('http://localhost:3000/vagas/1/2024');
-        const responseMatriculas = await fetch('http://localhost:3000/matriculas/1/2024');
+        const responseVagas = await fetch('http://localhost:3000/vagas/2/2024');
+        const responseMatriculas = await fetch('http://localhost:3000/matriculas/2/2024');
         const dataVagas = await responseVagas.json();
         const dataMatriculas = await responseMatriculas.json();
 

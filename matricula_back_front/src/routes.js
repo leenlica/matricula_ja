@@ -1,6 +1,7 @@
 import express from 'express';
 import Database from './database/database.js';
 import Vagas from './models/Vagas.js';
+import Usuarios from './models/Usuarios.js';
 
 const router = express.Router();
 
@@ -119,6 +120,39 @@ router.get('/matriculas/:escolaId/:ano', async(req, res) => {
     try{
         const matriculas = await Vagas.readAllSchoolMatriculas(escolaId, ano);
         res.json(matriculas)
+    }catch(e) {
+        console.log(e)
+        res.status(500).send("error no servidor")
+    }
+})
+
+router.post('/cadastro', async (req, res) => {
+    const data = req.body
+
+    try{
+        if(!req.body.email || !req.body.senha) {
+            return res.status(400).send("há campos faltando")
+        }
+        const newUser = await Usuarios.create(req.body.email, req.body.senha)
+        res.status(201).json(newUser)
+    }catch (e){
+        console.log(e)
+        res.status(500).send("error no servidor")
+    }
+})
+
+router.post('/login', async (req, res) => {
+    const data = req.body
+    try{
+        if(!req.body.email || !req.body.senha) {
+            return res.status(400).send("há campos faltando")
+        }
+        const user = await Usuarios.readByEmail(req.body.email);
+        if(!user) return res.status(400).send('usuario nao existe')
+        if(user.senha === req.body.senha){
+            return res.status(200).send("logado")
+        }
+        res.status(401).send("credenciais incorretas")
     }catch(e) {
         console.log(e)
         res.status(500).send("error no servidor")

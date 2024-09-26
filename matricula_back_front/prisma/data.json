@@ -16,23 +16,33 @@
     "usuarios": [
         {
             "nome": "Maxwell",
-            "perfil_id": 1
+            "perfil_id": 1,
+            "email": "maxwell@gmail.com",
+            "senha": "12356"
         },
         {
             "nome": "Sofia",
-            "perfil_id": 2
+            "perfil_id": 2,
+            "email": "sofia@gmail.com",
+            "senha": "12356"
         },
         {
             "nome": "Allice",
-            "perfil_id": 2
+            "perfil_id": 2,
+            "email": "allice@gmail.com",
+            "senha": "12356"
         },
         {
             "nome": "Maria Clara",
-            "perfil_id": 3
+            "perfil_id": 3,
+            "email": "maria@gmail.com",
+            "senha": "12356"
         },
         {
             "nome": "Hellen",
-            "perfil_id": 4
+            "perfil_id": 4,
+            "email": "hellen@gmail.com",
+            "senha": "12356"
         }
     ],
     "escolas": [
