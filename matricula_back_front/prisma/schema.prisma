@@ -67,7 +67,7 @@ model EstudantesTurmasEscola {
   id_estudante_fk       Int? // Foreign key to the Estudante (assuming you have a separate Estudante model)
   ano                   Int
   datahora_prematricula String?
-  datahora_matricula    String?
+  datahora_matricula    String
 
   turma     TurmaEscola @relation(fields: [id_escola_fk, ano], references: [id_escola_fk, ano], onDelete: Cascade) //devem ser mandados juntos para manter a unicidae dupla
   escola    Escola      @relation(fields: [id_escola_fk], references: [id_escola], onDelete: Cascade)

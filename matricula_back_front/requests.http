@@ -34,4 +34,4 @@ PUT http://localhost:3000/alertas/:id/lido
 GET http://localhost:3000/vagas/1/2024
 
 ###
-GET http://localhost:3000/matriculas/1/2024
+GET http://localhost:3000/matriculas/2/2024
