@@ -1,5 +1,6 @@
 import express from 'express';
 import Database from './database/database.js';
+import Vagas from './models/Vagas.js';
 
 const router = express.Router();
 
@@ -97,6 +98,18 @@ router.put('/alertas/:id/lido', async (req, res) => {
     }
 });
 
+//isso deve funcionar
+router.get('/vagas/disponivel/:escolaId', async(req, res) => {
+    const escolaId = req.params.escolaId
+
+    try{
+        const escola = await Vagas.readAllSchoolVagas(escolaId);
+        res.json(escola)
+    }catch(e) {
+        console.log(error)
+        res.status(500).send("error no servidor")
+    }
+})
 
 
 //dashboard

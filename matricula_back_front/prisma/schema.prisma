@@ -1,5 +1,4 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
+// schema.prisma
 
 generator client {
   provider = "prisma-client-js"
@@ -19,7 +18,6 @@ model Usuario {
   AlertaUser AlertaUser[]
   Estudante  EstudantesTurmasEscola[] // um usuario pode estar cadastrado em várias turmas ( nunca vi isso kkkk )
 }
-
 model AlertaUser {
   id_alerta_user Int      @id @default(autoincrement())
   data_envio     DateTime @default(now())
@@ -28,11 +26,10 @@ model AlertaUser {
   usuario        Usuario  @relation(fields: [usuario_id], references: [id_usuario])
   alerta         Alerta   @relation(fields: [alerta_id], references: [id_alerta])
 }
-
 model Alerta {
-  id_alerta  Int          @id @default(autoincrement())
-  titulo     String
-  descricao  String
+  id_alerta  Int      @id @default(autoincrement())
+  titulo     String   
+  descricao  String   
   AlertaUser AlertaUser[]
 }
 
@@ -75,3 +72,4 @@ model EstudantesTurmasEscola {
 
   @@unique([id_estudante_fk, ano, id_escola_fk])
 }
+
