@@ -5,15 +5,11 @@ import cors from 'cors';
 import morgan from 'morgan';
 import router from './routes.js';
 
-
 const server = express();
-
 
 server.use(express.static('public'));
 
-
 server.use(morgan('tiny'));
-
 
 server.use(
     cors({
