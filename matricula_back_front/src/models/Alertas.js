@@ -1,8 +1,6 @@
 import { PrismaClient } from '@prisma/client';
 const prisma = new PrismaClient();
 
-//ESTE É O NOVO CODIGO COM PRISMA, DEVE SER TESTADO
-
 async function create(titulo, descricao) {
     try {
         if (!titulo || !descricao) {
