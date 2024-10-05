@@ -43,7 +43,7 @@ POST http://localhost:3000/cadastro
 Content-Type: application/json
 
 {
-  "email": "joaovictorgouveia@gmail.com",
+  "email": "hellenfelix@gmail.com",
   "senha": "123456"
 }
 
@@ -52,6 +52,6 @@ POST http://localhost:3000/login
 Content-Type: application/json
 
 {
-  "email": "joaovictorgouveia@gmail.com",
+  "email": "hellenfelix@gmail.com",
   "senha": "123456"
 }

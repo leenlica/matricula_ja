@@ -18,8 +18,7 @@ async function fetchDataAndRenderCharts() {
         document.getElementById('pre-matriculas').innerText = preMatriculasConfirmadas;
         document.getElementById('matriculas').innerText = matriculasConfirmadas;
 
-//gráfico de barras para as matrículas
-
+        // gráfico de barras para as matrículas
         const ctx = document.getElementById('matriculasChart').getContext('2d');
         const matriculasChart = new Chart(ctx, {
             type: 'bar',
@@ -49,7 +48,7 @@ async function fetchDataAndRenderCharts() {
                 responsive: true,
                 plugins: {
                     legend: {
-                        display: false
+                        display: false 
                     },
                     tooltip: {
                         callbacks: {
@@ -68,20 +67,25 @@ async function fetchDataAndRenderCharts() {
         var preMatriculasData = [0]
         var matriculasData = [0]
 
-        for (let i = 0; i < 3; i++) { // loop fixo para os três meses do ano
+        for(let i = 0; i < 3; i++) { // loop fixo para os três meses do ano
             let vagas = dataMatriculas?.filter(item => {
                 let date = new Date(item.datahora_prematricula);
-                return date.getMonth() === i;
+                return date.getMonth() === i; 
             }).length;
             vagasDisponiveisData.push(vagasDisponiveisData[i] - vagas); // esses números sempre vão ser opostos
             preMatriculasData.push(preMatriculasData[i] + vagas); // esses números sempre vão ser opostos
 
             let matriculas = dataMatriculas?.filter(item => {
                 let date = new Date(item.datahora_matricula);
-                return date.getMonth() === i;
+                return date.getMonth() === i; 
             }).length;
             matriculasData.push(matriculasData[i] + matriculas);
         }
+
+        // Valores simulados para ao longo dos meses
+        //const vagasDisponiveisData = [vagasOfertadas, vagasOfertadas - vagasJan, vagasOfertadas, vagasDisponiveis]; 
+        //const preMatriculasData = [preMatriculasConfirmadas, preMatriculasConfirmadas, preMatriculasConfirmadas, preMatriculasConfirmadas]; 
+        //const matriculasData = [matriculasConfirmadas, matriculasConfirmadas , matriculasConfirmadas , matriculasConfirmadas]; 
 
         // gráfico de linha para matrículas ao longo dos meses
         const ctl = document.getElementById('newLineChart').getContext('2d');
@@ -112,7 +116,7 @@ async function fetchDataAndRenderCharts() {
                         tension: 0.1
                     }
                 ]
-            }, 
+            },
             options: {
                 responsive: true,
                 plugins: {
@@ -180,4 +184,5 @@ async function fetchDataAndRenderCharts() {
         console.error('Error fetching data:', error);
     }
 }
+
 document.addEventListener('DOMContentLoaded', fetchDataAndRenderCharts);
