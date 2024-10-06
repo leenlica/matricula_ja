@@ -6,6 +6,35 @@ import Usuarios from './models/Usuarios.js';
 
 const router = express.Router();
 
+router.post('/login', async (req, res) => {
+    const { email, senha } = req.body;
+
+    try {
+        const usuario = await prisma.usuario.findUnique({
+            where: { email: email },
+            include: { perfil: true }, // Inclui o perfil do usuário
+        });
+
+        if (!usuario) {
+            return res.status(400).json({ message: 'Usuário não existe' });
+        }
+
+        // Aqui você deve verificar a senha. Se não for usar bcrypt, verifique a comparação.
+        if (senha !== usuario.senha) {
+            return res.status(401).json({ message: 'Credenciais incorretas' });
+        }
+
+        // Se o login for bem-sucedido, retorne os dados do usuário
+        return res.json({
+            id: usuario.id_usuario,
+            nome: usuario.nome,
+            perfil_id: usuario.perfil_id,
+        });
+    } catch (error) {
+        console.error('Erro ao fazer login:', error);
+        return res.status(500).json({ message: 'Erro no servidor', error: error.message });
+    }
+});
 // Criar um novo alerta
 router.post('/alertas', async (req, res) => {
     const { titulo, descricao, usuarios } = req.body;

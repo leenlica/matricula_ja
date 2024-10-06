@@ -94,10 +94,7 @@
         <input type="text" placeholder="E-mail ou CPF" name="email">
         <br><br>
 
-        <input type="password" placeholder="Senha" name="senha"><i class="bi bi-eye-fill" id="btn-senha"
-            onclick="Mostrarsenha()"></i>
-
-        <script src="main.js"></script>
+        <input type="password" placeholder="Senha" name="senha">
         <br><br>
 
         <input type='checkbox'>Lembrar <a class="custom-btn btn custom-link" href="av2_senha.html">Redefir
@@ -110,35 +107,6 @@
         <p>Não tem uma Conta? <a class="custom-btn btn custom-link" href="av2_cadastro.html">Cadastre-se</a></p>
         </form>
     </div>
-    <script src="login.js"></script>
 </body>
-<script>
-    const form = document.querySelector('form')
-    form.addEventListener('submit', async (e)=>{
-        e.preventDefault()
-
-        const inputs = Object.fromEntries(new FormData(form));
-
-        const response = await fetch('http://localhost:3000/login', {
-            method: 'POST',
-            mode: 'cors',
-            body: JSON.stringify(inputs),
-            headers: {
-            'Content-Type': 'application/json; charset=UTF-8',
-            },
-        })
-
-        console.log(response)
-        if(response.ok){
-            alert("logado com sucesso")
-        } else if(response.status === 400){
-            alert("usuario nao existe")
-        } else if(response.status === 401) {
-            alert("credenciais incorretas")
-        } else {
-            alert("erro no servidor")
-        }
-        
-    } )
-</script>
+<script type="module" src="login.js"></script>
 </html>

@@ -1,5 +1,9 @@
 const domain = 'http://localhost:3000'; 
 
+// Função para login
+async function login(data) {
+    return await create('/login', data);
+}
 //create
 async function create(resource, data) {
     const url = `${domain}${resource}`;
@@ -69,4 +73,4 @@ async function marcarAlertaComoLido(alertaId) {
     return await request(`/alertas/${alertaId}/lido`, 'PUT');
 }
 
-export default { create, read, update, remove, marcarAlertaComoLido };
+export default { create, read, update, remove, marcarAlertaComoLido, login };
