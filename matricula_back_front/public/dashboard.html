@@ -9,7 +9,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
-    <link  rel="stylesheet" href="nav.css">
+    <link rel="stylesheet" href="nav.css">
 </head>
 
 <body>
@@ -18,17 +18,16 @@
             <i class="fas fa-bars"></i>
         </button>
         <div class="navbar-brand">
-             <img src="https://upload.wikimedia.org/wikipedia/commons/0/07/Bras%C3%A3o_de_Jo%C3%A3o_Pessoa.svg" width="50px">
-            <p><B>
-                Matrícula-já
-                </B>
-            </p>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/0/07/Bras%C3%A3o_de_Jo%C3%A3o_Pessoa.svg"
+                width="50px">
+            <p><b>Matrícula-já</b></p>
         </div>
         <div class="navbar-icons">
-            <a href="dashboard.html" class="nav-link">
+            <!-- IDs adicionados para controlar a exibição -->
+            <a href="dashboard.html" class="nav-link" id="dashboard-link">
                 <i class="fas fa-home"></i> Monitoramento
             </a>
-            <a href="alertas.html" class="nav-link">
+            <a href="alertas.html" class="nav-link" id="alertas-link">
                 <i class="fas fa-bell"></i> Alertas
             </a>
             <div class="user-dropdown">
@@ -47,17 +46,17 @@
 
     <main>
         <section id="cards">
-            <div class="card" style="border: 3px solid  rgba(82, 100, 225)">
-                <h3 >Vagas Disponíveis</h3>
-                <p style="color: rgba(82, 100, 225);  font-size: 60px" id="vagas-disponiveis">0</p>
+            <div class="card" style="border: 3px solid rgba(82, 100, 225)">
+                <h3>Vagas Disponíveis</h3>
+                <p style="color: rgba(82, 100, 225); font-size: 60px" id="vagas-disponiveis">0</p>
             </div>
-            <div class="card" style="border: 3px solid  rgba(211, 27, 230)">
+            <div class="card" style="border: 3px solid rgba(211, 27, 230)">
                 <h3 style="font-size: 22px;">Pré-Matrículas Confirmadas</h3>
-                <p style="color: rgba(211, 27, 230); font-size: 60px; padding-top:8px"id="pre-matriculas">0</p>
+                <p style="color: rgba(211, 27, 230); font-size: 60px; padding-top: 8px" id="pre-matriculas">0</p>
             </div>
             <div class="card" style="border: 3px solid rgba(17, 210, 65)">
                 <h3 style="font-size: 26px;">Matrículas Confirmadas</h3>
-                <p style="color: rgba(17, 210, 65); font-size: 60px; padding-top:5px" id="matriculas">0</p>
+                <p style="color: rgba(17, 210, 65); font-size: 60px; padding-top: 5px" id="matriculas">0</p>
             </div>
         </section>
         <section id="charts-container">
@@ -72,12 +71,34 @@
             </div>
         </section>
     </main>
+
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="dashboard.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
-        
+
+    <!-- Script para controlar a visibilidade dos links no navbar -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const perfilId = localStorage.getItem('perfil_id');
+
+            const dashboardLink = document.getElementById('dashboard-link');
+            const alertasLink = document.getElementById('alertas-link');
+
+            if (perfilId === '1') {
+                // Admin: esconde o link do dashboard
+                dashboardLink.style.display = 'none';
+            } else if (perfilId === '3' || perfilId === '4') {
+                // Escola e Gestor: mostram ambos os links
+                dashboardLink.style.display = 'block';
+                alertasLink.style.display = 'block';
+            } else {
+                dashboardLink.style.display = 'none';
+                alertasLink.style.display = 'none';
+            }
+        });
+    </script>
 </body>
 
 </html>

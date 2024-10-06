@@ -1,4 +1,4 @@
-import API from './api.js'; // ajuste o caminho conforme necessário
+import API from './api.js';
 
 const form = document.querySelector('form');
 
@@ -10,12 +10,16 @@ form.addEventListener('submit', async (e) => {
     try {
         const response = await API.login(inputs); // Chamando a função de login
 
+        // Armazena o perfil do usuário no localStorage
+        localStorage.setItem('perfil_id', response.perfil_id);
+
         // Mapeamento de perfil_id para URLs
         const perfilRedirects = {
             1: 'alertas.html',           // Admin
-            2: '/tela-estudante.html',   // Estudante
-            3: 'dashboard.html',         // Escola
-            4: 'alertas.html',           // Gestor
+            2: 'telavazia.html',          // Estudante
+            3: 'dashboard.html',          // Escola
+            4: 'alertas.html',            // Gestor
+            null: 'telavazia.html'
         };
 
         const redirectUrl = perfilRedirects[response.perfil_id];

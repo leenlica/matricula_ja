@@ -4,6 +4,7 @@ const domain = 'http://localhost:3000';
 async function login(data) {
     return await create('/login', data);
 }
+
 //create
 async function create(resource, data) {
     const url = `${domain}${resource}`;

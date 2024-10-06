@@ -20,16 +20,13 @@
         </button>
         <div class="navbar-brand">
             <img src="https://upload.wikimedia.org/wikipedia/commons/0/07/Bras%C3%A3o_de_Jo%C3%A3o_Pessoa.svg" width="50px">
-            <p><B>
-                    Matrícula-já
-                </B>
-            </p>
+            <p><b>Matrícula-já</b></p>
         </div>
         <div class="navbar-icons">
-            <a href="dashboard.html" class="nav-link">
+            <a href="dashboard.html" class="nav-link" id="dashboard-link">
                 <i class="fas fa-home"></i> Monitoramento
             </a>
-            <a href="alertas.html" class="nav-link">
+            <a href="alertas.html" class="nav-link" id="alertas-link">
                 <i class="fas fa-bell"></i> Alertas
             </a>
             <div class="user-dropdown">
@@ -126,8 +123,28 @@
             });
 
     </script>
-    <script type="module"  src="alertas.js"></script>
 
+    <!-- Script para controlar a visibilidade dos links no navbar -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const perfilId = localStorage.getItem('perfil_id');
+
+            const dashboardLink = document.getElementById('dashboard-link');
+            const alertasLink = document.getElementById('alertas-link');
+
+            if (perfilId === '1') {
+                // Admin: esconde o link do dashboard
+                dashboardLink.style.display = 'none';
+            } else if (perfilId === '3' || perfilId === '4') {
+                // Escola e Gestor: mostram ambos os links
+                dashboardLink.style.display = 'block';
+                alertasLink.style.display = 'block';
+            } else {
+                dashboardLink.style.display = 'none';
+                alertasLink.style.display = 'none';
+            }
+        });
+    </script>
 
 </body>
 

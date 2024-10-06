@@ -31,7 +31,6 @@ DELETE http://localhost:3000/alertas/2
 PUT http://localhost:3000/alertas/:id/lido
 
 
-
 ###
 GET http://localhost:3000/vagas/2/2024
 

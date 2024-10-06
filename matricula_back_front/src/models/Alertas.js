@@ -62,7 +62,7 @@ async function marcarLido(alertaId, usuarioId) {
                 usuario_id: usuarioId,
             },
             data: {
-                lido: true,  // Assuming you have a 'lido' field in alerta_user table
+                lido: true,  
             },
         });
 

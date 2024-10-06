@@ -17,4 +17,5 @@ async function readByEmail(email) {
     })
 }
 
+
 export default { create, readByEmail }

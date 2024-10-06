@@ -7,8 +7,8 @@ async function readAllSchoolVagas(id, ano){
           ano: ano
         },
         select: {
-          qtde_vagas_disponiveis: true, //as vagas disponiveis
-          qtde_vagas_ofertadas: true, //as vagas ofertadas
+          qtde_vagas_disponiveis: true,
+          qtde_vagas_ofertadas: true, 
         },
     });
 }

@@ -1,4 +1,5 @@
 import express from 'express';
+import prisma from './database/database.js';
 import Alertas from "./models/Alertas.js";
 import Vagas from './models/Vagas.js';
 import Usuarios from './models/Usuarios.js';
