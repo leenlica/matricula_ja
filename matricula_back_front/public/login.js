@@ -8,9 +8,8 @@ form.addEventListener('submit', async (e) => {
     const inputs = Object.fromEntries(new FormData(form));
 
     try {
-        const response = await API.login(inputs); // Chamando a função de login
+        const response = await API.login(inputs); 
 
-        // Armazena o perfil do usuário no localStorage
         localStorage.setItem('perfil_id', response.perfil_id);
 
         // Mapeamento de perfil_id para URLs
