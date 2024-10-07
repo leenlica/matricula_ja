@@ -1,11 +1,13 @@
 import express from 'express';
 import prisma from './database/database.js';
 import Alertas from "./models/Alertas.js";
-import Vagas from './models/Vagas.js';
+import Vagas from './models/vagas.js';
 import Usuarios from './models/Usuarios.js';
 
 
 const router = express.Router();
+
+// rota para login 
 
 router.post('/login', async (req, res) => {
     const { email, senha } = req.body;
@@ -13,19 +15,17 @@ router.post('/login', async (req, res) => {
     try {
         const usuario = await prisma.usuario.findUnique({
             where: { email: email },
-            include: { perfil: true }, // Inclui o perfil do usuário
+            include: { perfil: true }, 
         });
 
         if (!usuario) {
             return res.status(400).json({ message: 'Usuário não existe' });
         }
 
-        // Aqui você deve verificar a senha. Se não for usar bcrypt, verifique a comparação.
         if (senha !== usuario.senha) {
             return res.status(401).json({ message: 'Credenciais incorretas' });
         }
 
-        // Se o login for bem-sucedido, retorne os dados do usuário
         return res.json({
             id: usuario.id_usuario,
             nome: usuario.nome,
@@ -36,6 +36,7 @@ router.post('/login', async (req, res) => {
         return res.status(500).json({ message: 'Erro no servidor', error: error.message });
     }
 });
+
 // Criar um novo alerta
 router.post('/alertas', async (req, res) => {
     const { titulo, descricao, usuarios } = req.body;
@@ -131,8 +132,8 @@ router.put('/alertas/:id/lido', async (req, res) => {
 
 
 router.get('/vagas/:escolaId/:ano', async (req, res) => {
-    const escolaId = Number(req.params.escolaId) //converter para numero é essencial
-    const ano = Number(req.params.ano) //converter para numero é essencial
+    const escolaId = Number(req.params.escolaId)
+    const ano = Number(req.params.ano) 
     try {
         const escola = await Vagas.readAllSchoolVagas(escolaId, ano);
         res.json(escola)
@@ -143,8 +144,8 @@ router.get('/vagas/:escolaId/:ano', async (req, res) => {
 })
 
 router.get('/matriculas/:escolaId/:ano', async (req, res) => {
-    const escolaId = Number(req.params.escolaId) //converter para numero é essencial
-    const ano = Number(req.params.ano) //converter para numero é essencial
+    const escolaId = Number(req.params.escolaId) 
+    const ano = Number(req.params.ano) 
 
     try {
         const matriculas = await Vagas.readAllSchoolMatriculas(escolaId, ano);
@@ -165,24 +166,6 @@ router.post('/cadastro', async (req, res) => {
         }
         const newUser = await Usuarios.create(req.body.email, req.body.senha)
         res.status(201).json(newUser)
-    } catch (e) {
-        console.log(e)
-        res.status(500).send("error no servidor")
-    }
-})
-
-router.post('/login', async (req, res) => {
-    const data = req.body
-    try {
-        if (!req.body.email || !req.body.senha) {
-            return res.status(400).send("há campos faltando")
-        }
-        const user = await Usuarios.readByEmail(req.body.email);
-        if (!user) return res.status(400).send('usuario nao existe')
-        if (user.senha === req.body.senha) {
-            return res.status(200).send("logado")
-        }
-        res.status(401).send("credenciais incorretas")
     } catch (e) {
         console.log(e)
         res.status(500).send("error no servidor")
