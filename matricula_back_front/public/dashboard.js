@@ -82,10 +82,6 @@ async function fetchDataAndRenderCharts() {
             matriculasData.push(matriculasData[i] + matriculas);
         }
 
-        // Valores simulados para ao longo dos meses
-        //const vagasDisponiveisData = [vagasOfertadas, vagasOfertadas - vagasJan, vagasOfertadas, vagasDisponiveis]; 
-        //const preMatriculasData = [preMatriculasConfirmadas, preMatriculasConfirmadas, preMatriculasConfirmadas, preMatriculasConfirmadas]; 
-        //const matriculasData = [matriculasConfirmadas, matriculasConfirmadas , matriculasConfirmadas , matriculasConfirmadas]; 
 
         // gráfico de linha para matrículas ao longo dos meses
         const ctl = document.getElementById('newLineChart').getContext('2d');
